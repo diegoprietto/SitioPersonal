@@ -1,0 +1,193 @@
+extends layout.pug
+
+block VistaLinks
+	script(src="scripts/admin.js")
+	link(href="css/admin.css", rel="stylesheet")
+
+block VistaCuerpo
+	#ContenedorInfo.row(style="padding-left: 15px")
+		.col-sm-6
+			div(style="font-size: 30px; margin-bottom: 30px")
+				|¿Por Qué Elegirnos?
+				button#BotonGuardarInfo.btn.btn-success.pull-right(type='button', disabled='disabled', onclick='GuardarInfo()')
+					|Guardar
+					span.fa.fa-floppy-o(style="margin-left: 5px")
+					span.fa.fa-spinner.fa-spin(style="margin-left: 5px")
+			//- Generado dinámicamente a partir de datos de BD
+			#ListaInfo.ul.media-list
+				each val in info
+					li.media.Documento
+						.media-left
+							span(style="color: #337ab7")
+								if (val.Mostrar=="S")
+									i.fa.fa-toggle-on.CampoMostrar(onclick='HabilitarInfo(this);')
+								else
+									i.fa.fa-toggle-off.CampoMostrar(onclick='HabilitarInfo(this);')
+							span(style="color: red")
+								i.fa.fa-trash(onclick='EliminarInfo(this);')
+						.media-body
+							h4.media-heading.CampoTitulo(contenteditable='true', onblur='habilitarGuardadoInfo()') #{val.Titulo}
+							label.CampoCuerpo(contenteditable='true', onblur='habilitarGuardadoInfo()') #{val.Cuerpo}
+			ul.media-list
+				li.media.Documento
+					.media-left
+						span(style="color: #22b511")
+							i.fa.fa-plus-circle(onclick='AgregarInfo();')
+
+	#ContenedorFotos.row(style="padding-left: 15px; display: none")
+		.col-sm-12
+			div(style="font-size: 30px; margin-bottom: 30px")
+				|Galeria de Fotos
+				i.fa.fa-info-circle(style='color: #949494; margin-left: 15px;', aria-hidden="true", data-toggle="tooltip", data-placement="right", title="Debe haber mínimo 2 fotos para que el carrousel se muestre correctamente.")
+
+			form
+				.form-group
+					label(for='files') Seleccione un archivo:
+					input#files(type='file', name='files[]')
+			output#list
+				.col-sm-12
+					.alert.alert-info(role='info')
+						i.fa.fa-spinner.fa-spin
+						|  Cargando...
+
+	#ContenedorSolicitudes.row(style="padding-left: 15px; display: none")
+		.col-sm-12
+			.alert.alert-info(role='info')
+				i.fa.fa-spinner.fa-spin
+				|  Cargando...
+
+	#ContenedorUsuario.row(style="padding-left: 15px; display: none")
+		#ContenedorUsuarioLoading.col-sm-12
+			.alert.alert-info(role='info')
+				i.fa.fa-spinner.fa-spin
+				|  Cargando...
+
+		#ContenedorUsuarioCuerpo.col-sm-12(style="display: none;")
+			form.form-horizontal
+				.form-group
+					label.col-sm-2.control-label Usuario
+					.col-sm-6
+						p.form-control-static 
+							= user.Id
+				.form-group
+					label.col-sm-2.control-label(for='usuarioPass') Password
+					.col-sm-6
+						input#usuarioPass.form-control(type='password', placeholder='Password', disabled)
+					button#usuarioPassButton.col-sm-1.btn.btn-danger(type='button', onclick="ChangePw()")
+						|Cambiar
+						span.fa.fa-pencil-square-o(style="margin-left: 5px")
+				.form-group
+					label.col-sm-2.control-label(for='usuarioMail') Mail:
+					.col-sm-6
+						input#usuarioMail.form-control(type='email', placeholder='Mail', disabled='disabled')
+					button#usuarioMailButton.col-sm-1.btn.btn-primary(type='button', onclick="$('#usuarioMail').removeAttr('disabled'); $('#usuarioMailButton').attr('disabled', 'disabled'); $('#usuarioGuardar').removeAttr('disabled');")
+						|Cambiar
+						span.fa.fa-pencil-square-o(style="margin-left: 5px")
+				.form-group
+					label.col-sm-2.control-label(for='usuarioMailSolicitud') Destino de las solicitudes de presupuestos:
+					.col-sm-6
+						input#usuarioMailSolicitud.form-control(type='email', placeholder='Mail', disabled)
+					button#usuarioMailSolicitudButton.col-sm-1.btn.btn-primary(type='button', onclick="$('#usuarioMailSolicitud').removeAttr('disabled'); $('#usuarioMailSolicitudButton').attr('disabled', 'disabled');$('#usuarioGuardar').removeAttr('disabled');")
+						|Cambiar
+						span.fa.fa-pencil-square-o(style="margin-left: 5px")
+				.form-group
+					.col-sm-offset-2.col-sm-10
+						button#usuarioGuardar.btn.btn-success(type='button', disabled, onclick='UsuarioGuardar();')
+							|Guardar
+							span.fa.fa-floppy-o(style="margin-left: 5px")
+							span.fa.fa-spinner.fa-spin(style="margin-left: 5px; display: none;")
+
+			#modalPass.modal.fade(tabindex='-1', role='dialog')
+				.modal-dialog(role='document')
+					.modal-content
+						.modal-header
+							button.close(type='button', data-dismiss='modal', aria-label='Close')
+								span(aria-hidden='true') ×
+							h4.modal-title
+								|Actualizar datos de usuario
+								span.fa.fa-key(style="margin-left: 5px;")
+						.modal-body
+
+							form
+								.form-group
+									label(for='usuarioOldPass') Ingrese el password actual
+									input#usuarioOldPass.form-control(type='password', placeholder='Password Actual')
+								.form-group
+									label(for='usuarioNewPass') Ingrese el nuevo password
+									input#usuarioNewPass.form-control(type='password', placeholder='Nuevo Password')
+								.form-group
+									label(for='usuarioNewPass2') Repita el nuevo password por seguridad
+									input#usuarioNewPass2.form-control(type='password', placeholder='Repita Nuevo Password')
+								button#ConfirmChangePwButton.btn.btn-primary(type='button', onclick="ConfirmChangePw()")
+									|Actualizar
+									span.fa.fa-floppy-o(style="margin-left: 5px")
+									span.fa.fa-spinner.fa-spin(style="margin-left: 5px; display: none;")
+								.form-group
+									#AlertExitoModal.alert.alert-success(role='alert', style='display: none;')
+										i.fa.fa-check
+										span
+											| Se guadaron los cambios con éxito
+									#AlertErrorModal.alert.alert-danger(role='alert', style='display: none;')
+										i.fa.fa-exclamation-triangle
+										span
+											| Error
+
+						.modal-footer
+							button.btn.btn-default(type='button', data-dismiss='modal') Cerrar
+					// /.modal-content
+				// /.modal-dialog
+			// /.modal
+
+	#ContenedorExportBd.row(style="padding-left: 15px; display: none")
+		h3 Generar Datos:
+		button.btn.btn-primary(type='button', onclick='genDatos("I", this);')
+			|Generar datos de información
+			span.fa.fa-cogs(style="margin-left: 5px")
+			span.fa.fa-spinner.fa-spin(style="margin-left: 5px; display: none;")
+		button.btn.btn-primary(type='button', onclick='genDatos("F", this);')
+			|Generar datos de fotos
+			span.fa.fa-cogs(style="margin-left: 5px")
+			span.fa.fa-spinner.fa-spin(style="margin-left: 5px; display: none;")
+		button.btn.btn-primary(type='button', onclick='genDatos("U", this);')
+			|Generar datos de usuarios
+			span.fa.fa-cogs(style="margin-left: 5px")
+			span.fa.fa-spinner.fa-spin(style="margin-left: 5px; display: none;")
+		button.btn.btn-primary(type='button', onclick='genDatos("M", this);')
+			|Generar datos de mailer
+			span.fa.fa-cogs(style="margin-left: 5px")
+			span.fa.fa-spinner.fa-spin(style="margin-left: 5px; display: none;")
+		button.btn.btn-primary(type='button', onclick='genDatos("S", this);')
+			|Generar datos de solicitudes
+			span.fa.fa-cogs(style="margin-left: 5px")
+			span.fa.fa-spinner.fa-spin(style="margin-left: 5px; display: none;")
+		button.btn.btn-primary(type='button', onclick='genDatos("V", this);')
+			|Generar datos de visitas
+			span.fa.fa-cogs(style="margin-left: 5px")
+			span.fa.fa-spinner.fa-spin(style="margin-left: 5px; display: none;")
+
+		br
+		h3 Recuperar Datos:
+		button.btn.btn-warning(type='button', onclick='RecDatos("I", this);')
+			|Recuperar datos de información
+			span.fa.fa-cogs(style="margin-left: 5px")
+			span.fa.fa-spinner.fa-spin(style="margin-left: 5px; display: none;")
+		button.btn.btn-warning(type='button', onclick='RecDatos("F", this);')
+			|Recuperar datos de fotos
+			span.fa.fa-cogs(style="margin-left: 5px")
+			span.fa.fa-spinner.fa-spin(style="margin-left: 5px; display: none;")
+		button.btn.btn-warning(type='button', onclick='RecDatos("U", this);')
+			|Recuperar datos de usuarios
+			span.fa.fa-cogs(style="margin-left: 5px")
+			span.fa.fa-spinner.fa-spin(style="margin-left: 5px; display: none;")
+		button.btn.btn-warning(type='button', onclick='RecDatos("M", this);')
+			|Recuperar datos de mailer
+			span.fa.fa-cogs(style="margin-left: 5px")
+			span.fa.fa-spinner.fa-spin(style="margin-left: 5px; display: none;")
+		button.btn.btn-warning(type='button', onclick='RecDatos("S", this);')
+			|Recuperar datos de solicitudes
+			span.fa.fa-cogs(style="margin-left: 5px")
+			span.fa.fa-spinner.fa-spin(style="margin-left: 5px; display: none;")
+		button.btn.btn-warning(type='button', onclick='RecDatos("V", this);')
+			|Recuperar datos de visitas
+			span.fa.fa-cogs(style="margin-left: 5px")
+			span.fa.fa-spinner.fa-spin(style="margin-left: 5px; display: none;")
