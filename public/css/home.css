@@ -1,0 +1,51 @@
+aside{
+	width: 200px;
+	display: inline-block;
+	vertical-align: top;
+
+	/*
+	border-style: solid;
+	*/
+}
+
+#cuerpoDerecho{
+	display: inline-block;
+	width: calc(100% - 200px);
+	height: 100%;
+
+	/*
+	border-style: solid;
+	*/
+}
+
+#cuerpoSuperior{
+	display: block;
+}
+
+header,nav,section,article{
+	width: 100%;
+	height: auto;
+
+	/*
+	border-style: solid;
+	*/
+}
+
+footer{
+	width: 100%;
+
+	/*
+	border-style: solid;
+	*/
+}
+
+img.media-object{
+	width: 64px;
+	height: 64px;
+}
+
+.fa-warning{
+	margin-left: 15px;
+	margin-right: 15px;
+	color: #673AB7;
+}

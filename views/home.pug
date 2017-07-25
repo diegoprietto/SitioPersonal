@@ -14,22 +14,69 @@ html(lang='es-ES')
 
 		link(href="font-awesome-4.7.0/css/font-awesome.min.css", rel="stylesheet")
 
-		link(href="css/styles.css", rel="stylesheet")
-		
-		script(src="scripts/main.js")
-
 		link(rel='shortcut icon', type='image/x-icon', href='/images/favicon.ico')
 
+		link(href="css/home.css", rel="stylesheet")
+
 	body
-
-		h1
-			|Bienvenidos!
-		h2
-			|Este sitio esta bajo desarrollo.
-
-		p
-			|Enlaces:
-		ol
-			li
-				a(href="http://www.argen-tech.com.ar", target="_blank")
+		// -	a(href="http://www.argen-tech.com.ar", target="_blank")
 					|Construcción y Reparación de Galpones, Techos y Tinglados | Argen-Tech SA
+
+		#cuerpoSuperior
+			aside
+				//- Falta Contenido
+				i.fa.fa-cog.fa-spin(style="font-size: 120px; margin-left: 45px; margin-top: 40px; color: grey")
+			#cuerpoDerecho
+				header
+					.jumbotron
+						h1(style="display:none")
+							|Bienvenidos a mi sitio personal
+						p(style="margin-left: 15px")
+							|Éste es un espacio para compartir y agrupar en un solo lugar mis proyectos personales.
+						p(style="margin-left: 50px")
+							|Éste sitio aún esta bajo desarrollo
+							i.fa.fa-warning
+
+				nav
+					//- Falta Contenido
+				section
+					h2 Proyectos Web:
+
+					ul.media-list
+						li.media
+							.media-left
+								a(href="https://www.argen-tech.com.ar", target="_blank")
+									img.media-object(src='images/iconoArgentech.ico', alt='Argen-Tech SA')
+							.media-body
+								h4.media-heading argen-tech.com.ar
+								|Construcción y Reparación de Galpones, Techos y Tinglados
+								br
+								|Argen-Tech SA
+
+					h2 Proyectos No Web:
+
+					ul.media-list
+
+						li.media
+							.media-left
+								a(href="http://servicio.mercadolibre.com.ar/MLA-674159662-clases-de-html-nivel-inicial-para-desarrollo-de-sitios-web-_JM", target="_blank")
+									img.media-object(src='images/iconoClase64.png', alt='HTML, CSS y JavaScript')
+							.media-body
+								h4.media-heading Clases Nivel Inicial de Html para Desarrollo de Sitios Web
+								|Introducción a HTML desde lo más básico, y luego se puede continuar la capacitación hasta CSS, JavaScript, JQuery, Bootstrap, FontAwesome, entre otros temas para fortalecer el conocimiento en el desarrollo.
+
+						//-li.media
+							.media-left
+								a(href="#")
+									img.media-object(src='...', alt='ML')
+							.media-body
+								h4.media-heading Venta de escudos de futbol artesanales
+								|Visitalos en ML:
+								a(href="#") &nbspBoca,
+								a(href="#") &nbspRiver,
+								a(href="#") &nbspRacing
+
+				article
+					//- Falta Contenido
+		footer
+			//- Falta Contenido
