@@ -30,8 +30,11 @@ html(lang='es-ES')
 		#cuerpoSuperior
 			aside
 				//- Falta Contenido
-				i.rotatorio.fa.fa-cog(style="font-size: 120px; margin-left: 45px; margin-top: 40px; color: grey; cursor: pointer", onclick="iniciarRotacion()")
-			#cuerpoDerecho
+
+				i#cerrarAside.fa.fa-times(onclick="cerrar()", title="Cerrar")
+
+				i#cogAnimado.rotatorio.fa.fa-cog(onclick="iniciarRotacion()")
+			#cuerpoDerecho.cuerpoDerechoReducido
 				header
 					.jumbotron
 						h1(style="display:none")

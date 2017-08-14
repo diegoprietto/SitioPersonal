@@ -2,20 +2,25 @@ aside{
 	width: 200px;
 	display: inline-block;
 	vertical-align: top;
-
-	/*
-	border-style: solid;
-	*/
 }
 
 #cuerpoDerecho{
 	display: inline-block;
-	width: calc(100% - 200px);
 	height: 100%;
+}
 
-	/*
-	border-style: solid;
-	*/
+/*Aside oculto*/
+.cuerpoDerecho{
+	width: 100%;
+}
+
+/*Aside visible*/
+.cuerpoDerechoReducido{
+	width: calc(100% - 200px);
+}
+
+.oculto{
+	display: none;
 }
 
 #cuerpoSuperior{
@@ -25,18 +30,10 @@ aside{
 header,nav,section,article{
 	width: 100%;
 	height: auto;
-
-	/*
-	border-style: solid;
-	*/
 }
 
 footer{
 	width: 100%;
-
-	/*
-	border-style: solid;
-	*/
 }
 
 img.media-object{
@@ -111,4 +108,23 @@ img.media-object{
 
 #etiqueta:hover{
   color: white;
+}
+
+#cerrarAside{
+	font-size: 10px;
+	color: grey;
+	cursor: pointer;
+	display: block;
+	text-align: right;
+}
+#cerrarAside:hover{
+	color: black;
+}
+
+#cogAnimado{
+	font-size: 120px;
+	margin-left: 45px;
+	margin-top: 30px;
+	color: grey;
+	cursor: pointer;
 }

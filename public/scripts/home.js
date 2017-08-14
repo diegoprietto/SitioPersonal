@@ -101,3 +101,11 @@ function obtenerTiempoTranscurrido(){
 
   return tiempoTransurrido;
 }
+
+//Cerrar aside
+function cerrar(){
+  $("#cuerpoDerecho").toggleClass("cuerpoDerechoReducido").toggleClass("cuerpoDerecho");
+  $("aside").toggleClass("oculto");
+  //Detener animación COG 
+  detener = true;
+}
