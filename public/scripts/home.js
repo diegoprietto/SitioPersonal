@@ -1,11 +1,18 @@
 "use strict";
 
-//Indica si esta en movimiento o no
+//Indica si esta en movimiento o no el contenedor deslizable
 var enMovimiento = false;
+//Atributos para rotación de COG
+var gradosActual = 0;
+var velocidadActual = 0.0;
+var intervalRotar;
+var tiempoAnterior;
+var detener = false;
 
 
 $(document).ready(function () {
-	//Inicio
+	//Animación del COG
+  iniciarRotacion();
 });
 
 
@@ -45,4 +52,52 @@ function listenerAnimacion(e) {
       enMovimiento = false;
       break;
   }
+}
+
+function iniciarRotacion(){
+  if (intervalRotar){
+    detener = !detener;
+  }else{
+    //Reloj para rotar
+    tiempoAnterior = new Date().getTime();
+    velocidadActual = 0.0;  //Reiniciar velocidad
+    intervalRotar = setInterval(function(){
+       rotar(1);
+    }, 1);
+  }
+}
+
+//Actualiza la rotación
+function rotar(grados){
+  let tiempo = obtenerTiempoTranscurrido();
+  //Calcular velocidad actual
+  if (detener){
+    if (velocidadActual > 0.0){
+      velocidadActual -= 0.01;
+    }
+    else{
+      clearInterval(intervalRotar);
+      intervalRotar=null;
+      detener = false;
+    }
+
+  }
+  else{
+    if (velocidadActual < 2.0)
+      velocidadActual += 0.01;
+  }
+
+  gradosActual += grados*velocidadActual*(tiempo/10);
+  if (gradosActual > 360) gradosActual-=360;
+
+  $(".rotatorio").css("transform", "rotate(" + gradosActual + "deg)");
+}
+
+//Obtener tiempo transcurrido entre Frames
+function obtenerTiempoTranscurrido(){
+  //Calcular tiempo transcurrido
+  let tiempoTransurrido = new Date().getTime() - tiempoAnterior;
+  tiempoAnterior =  new Date().getTime();
+
+  return tiempoTransurrido;
 }
