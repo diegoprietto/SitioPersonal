@@ -28,7 +28,11 @@ var async = require("async");
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 app.use(cookieParser());
-app.use(session({secret: "Datos de Sesion"}));
+app.use(session({
+  secret: "Datos Personal",
+  resave: false,
+  saveUninitialized: false
+}));
 
 //Definición de puerto
 app.set('port', (process.env.PORT || 5000));

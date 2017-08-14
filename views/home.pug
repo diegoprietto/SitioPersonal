@@ -14,13 +14,18 @@ html(lang='es-ES')
 
 		link(href="font-awesome-4.7.0/css/font-awesome.min.css", rel="stylesheet")
 
+		link(href='https://fonts.googleapis.com/css?family=Lobster|Sedgwick+Ave+Display', rel='stylesheet')
+
 		link(rel='shortcut icon', type='image/x-icon', href='/images/favicon.ico')
 
 		link(href="css/home.css", rel="stylesheet")
+		script(src="scripts/home.js")
 
 	body
-		// -	a(href="http://www.argen-tech.com.ar", target="_blank")
-					|Construcción y Reparación de Galpones, Techos y Tinglados | Argen-Tech SA
+		#divDeslizante.cuadro.cerrado
+			|Iniciar sesión
+			#etiqueta(onclick='accion()')
+				i.fa.fa-user(aria-hidden='true')
 
 		#cuerpoSuperior
 			aside
@@ -64,17 +69,6 @@ html(lang='es-ES')
 							.media-body
 								h4.media-heading Clases Nivel Inicial de Html para Desarrollo de Sitios Web
 								|Introducción a HTML desde lo más básico, y luego se puede continuar la capacitación hasta CSS, JavaScript, JQuery, Bootstrap, FontAwesome, entre otros temas para fortalecer el conocimiento en el desarrollo.
-
-						//-li.media
-							.media-left
-								a(href="#")
-									img.media-object(src='...', alt='ML')
-							.media-body
-								h4.media-heading Venta de escudos de futbol artesanales
-								|Visitalos en ML:
-								a(href="#") &nbspBoca,
-								a(href="#") &nbspRiver,
-								a(href="#") &nbspRacing
 
 				article
 					//- Falta Contenido

@@ -49,3 +49,65 @@ img.media-object{
 	margin-right: 15px;
 	color: #673AB7;
 }
+
+.cerrado {
+  top:-100px;
+}
+
+.cuadro{
+    background-color: rgba(94, 153, 204, 0.9);
+    position:fixed;
+    width:350px;
+    height:100px;
+    right:10px;
+    border-bottom-right-radius: 10px;
+}
+
+.abrir{
+  top:0px;
+  animation-duration: 0.5s;
+  animation-name: abrir;
+}
+
+@keyframes abrir{
+  from {
+    top:-100px;
+  }
+
+  to {
+    top:0px;
+  }
+}
+
+.cerrar{
+  top:-100px;
+  animation-duration: 0.5s;
+  animation-name: cerrar;
+}
+
+@keyframes cerrar{
+  from {
+    top:0px;
+  }
+
+  to {
+    top:-100px;
+  }
+}
+
+#etiqueta{
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  top: 100px;
+  cursor: pointer;
+  text-align: center;
+
+  border-radius: 0px 0px 5px 5px;
+  background-color: rgba(94, 153, 204, 0.9);
+  color: yellow;
+}
+
+#etiqueta:hover{
+  color: white;
+}
