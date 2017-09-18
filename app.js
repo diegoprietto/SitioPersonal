@@ -58,7 +58,7 @@ app.set('view engine', 'pug');
 var nombreColeccionUsers = "Users";
 
 //Obtener URI de Mong de variable de entorno por seguridad
-var uriBD = (process.env.UriBD || "ERROR");
+var uriBD = (process.env.UriBD);
 
 
 
@@ -193,7 +193,7 @@ function respuestaAjaxJson(res, tipoMsj, mensaje, contenido){
 
 
 //////TEST
-var uriBDTemporal = "ERROR";
+var uriBDTemporal = uriBD;
 
 var usuarioTempo = {
     Id: "Pepe",
