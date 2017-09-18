@@ -21,9 +21,18 @@ html(lang='es-ES')
 		link(href="css/home.css", rel="stylesheet")
 		script(src="scripts/home.js")
 
-	body
+	body(style="background: url('/images/back.png');")
 		#divDeslizante.cuadro.cerrado
-			|Iniciar sesión
+
+			#contenedorLogin
+				.form-group
+					label(for='id') Usuario
+					input#id.form-control(type='text', placeholder='Usuario')
+				.form-group
+					label(for='pass') Password
+					input#pass.form-control(type='password', placeholder='Password')
+				button.btn.btn-primary(type='submit', onclick="login()") Login
+
 			#etiqueta(onclick='accion()')
 				i.fa.fa-user(aria-hidden='true')
 
@@ -31,12 +40,13 @@ html(lang='es-ES')
 			aside
 				//- Falta Contenido
 
-				i#cerrarAside.fa.fa-times(onclick="cerrar()", title="Cerrar")
+				i#cerrarAside.fa.fa-times(onclick="cerrar()", data-toggle='tooltip', data-placement='right' title="Cerrar")
 
-				i#cogAnimado.rotatorio.fa.fa-cog(onclick="iniciarRotacion()")
+				i#cogAnimado.rotatorio.fa.fa-cog(onclick="iniciarRotacion()", data-toggle='tooltip', data-placement='right', title='Haz clic en mí!')
 			#cuerpoDerecho.cuerpoDerechoReducido
 				header
 					.jumbotron
+						i#abrirAside.fa.fa-share(onclick="abrirAside()", title="Mostrar Lateral", data-toggle='tooltip', data-placement='right', style="display: none")
 						h1(style="display:none")
 							|Bienvenidos a mi sitio personal
 						p(style="margin-left: 15px")
@@ -67,8 +77,8 @@ html(lang='es-ES')
 
 						li.media
 							.media-left
-								a(href="http://servicio.mercadolibre.com.ar/MLA-674159662-clases-de-html-nivel-inicial-para-desarrollo-de-sitios-web-_JM", target="_blank")
-									img.media-object(src='images/iconoClase64.PNG', alt='HTML, CSS y JavaScript')
+								a(href="http://servicio.mercadolibre.com.ar/MLA-678848203-clases-nivel-inicial-para-desarrollo-de-sitios-web-html-css-_JM", target="_blank")
+									img.itemRedondeado.media-object(src='images/iconoClase64.PNG', alt='HTML, CSS y JavaScript')
 							.media-body
 								h4.media-heading Clases Nivel Inicial de Html para Desarrollo de Sitios Web
 								|Introducción a HTML desde lo más básico, y luego se puede continuar la capacitación hasta CSS, JavaScript, JQuery, Bootstrap, FontAwesome, entre otros temas para fortalecer el conocimiento en el desarrollo.

@@ -13,6 +13,8 @@ var detener = false;
 $(document).ready(function () {
 	//Animación del COG
   iniciarRotacion();
+  //Inicializar los ToolTips
+  $('[data-toggle="tooltip"]').tooltip();
 });
 
 
@@ -106,6 +108,31 @@ function obtenerTiempoTranscurrido(){
 function cerrar(){
   $("#cuerpoDerecho").toggleClass("cuerpoDerechoReducido").toggleClass("cuerpoDerecho");
   $("aside").toggleClass("oculto");
+  $("#abrirAside").show();
   //Detener animación COG 
   detener = true;
+}
+
+//Abrir aside
+function abrirAside(){
+  $("#cuerpoDerecho").toggleClass("cuerpoDerechoReducido").toggleClass("cuerpoDerecho");
+  $("aside").toggleClass("oculto");
+  $("#abrirAside").hide();
+}
+
+function login(){
+  $.ajax({
+    contentType: "application/json",
+    method: "POST",
+    url: "login",
+    data: JSON.stringify({ content:
+      {
+        id: $("#id").val(),
+        pass: $("#pass").val()
+      }
+    }),
+    success: function(response) { logOk(response); },
+    error: function(response) { LogError(response); }
+  });
+
 }
