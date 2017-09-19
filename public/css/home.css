@@ -126,7 +126,10 @@ img.media-object{
 #abrirAside{
 	font-size: 10px;
 	color: #3e3e3e;
-	cursor: pointer;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  left: 5px;
 }
 #abrirAside:hover{
 	color: rgb(0, 0, 0);
