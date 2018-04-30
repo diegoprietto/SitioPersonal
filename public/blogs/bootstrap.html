@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Blog: Utilizar Bootstrap 4 en nuestro sitio">
+    <meta name="author" content="Diego Prietto">
+    <link rel="icon" href="/img/favicon.png">
+
+    <title>Mi blog personal</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link href="css/blog.css" rel="stylesheet">
+    
+    <!--Scripts-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-2 pt-1">
+            <a class="text-muted" href="https://diegoprietto.herokuapp.com/">Home</a>
+          </div>
+          <div class="col-8 text-center">
+            <a class="blog-header-logo text-dark" href="#">Mi blog personal</a>
+          </div>
+          <div class="col-2 d-flex justify-content-end align-items-center">
+            <a class="btn btn-sm btn-outline-secondary" href="#">Iniciar Sesión</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="nav-scroller py-1 mb-2" style="display: none">
+        <nav class="nav d-flex justify-content-between">
+          <a class="p-2 text-muted" href="#">World</a>
+          <a class="p-2 text-muted" href="#">U.S.</a>
+          <a class="p-2 text-muted" href="#">Technology</a>
+          <a class="p-2 text-muted" href="#">Design</a>
+          <a class="p-2 text-muted" href="#">Culture</a>
+          <a class="p-2 text-muted" href="#">Business</a>
+          <a class="p-2 text-muted" href="#">Politics</a>
+          <a class="p-2 text-muted" href="#">Opinion</a>
+          <a class="p-2 text-muted" href="#">Science</a>
+          <a class="p-2 text-muted" href="#">Health</a>
+          <a class="p-2 text-muted" href="#">Style</a>
+          <a class="p-2 text-muted" href="#">Travel</a>
+        </nav>
+      </div>
+
+      <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+          <h1 class="display-4 font-italic">Mini-Blogs sobre mis proyectos web</h1>
+          <p class="lead my-3">Siempre acostumbré a investigar y generar documentos sobre los proyectos en los que trabajo, donde solo una pequeña parte terminaba siendo útil, pero ahora he decidido compartirlo en la web para acceso de cualquiera al que le pueda resultar útil.</p>
+          <p class="lead mb-0"><a href="#" class="text-white font-weight-bold" style="display: none">Continuar leyendo...</a></p>
+        </div>
+      </div>
+
+      <div class="row mb-2" style="display: none">
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 box-shadow h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-primary">World</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">Featured post</a>
+              </h3>
+              <div class="mb-1 text-muted">Nov 12</div>
+              <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+              <a href="#">Continue reading</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 box-shadow h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-success">Design</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">Post title</a>
+              </h3>
+              <div class="mb-1 text-muted">Nov 11</div>
+              <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+              <a href="#">Continue reading</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8 blog-main">
+          <h3 class="pb-3 mb-4 font-italic border-bottom" style="display: none">
+            From the Firehose
+          </h3>
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">Utilizando Bootstrap 4 en nuestro sitio</h2>
+            <p class="blog-post-meta sin-margin-bottom">29 de Marzo del 2018 por <a href="#">Diego</a></p>
+            <p class="blog-post-meta">Versión de Bootstrap en el momento de escribir este blog: v4.1.0</p>
+
+            <p>Pasos para utilizar Bootstrap 4 en nuestro sitio web:</p>
+
+            <hr>
+
+            <h3>1. Visitar el sitio oficial de Bootstrap:</h3>
+
+            <p>Acceder <a href="https://getbootstrap.com/" target="_blank">getbootstrap.com</a> para obtener los links de la versión más actualizada de <strong>Bootstrap 4</strong>.</p>
+            
+            <p>Hay varias maneras de utilizar incorporar Bootstrap en nuestro proyecto:</p>
+            
+            <ul>
+                <li>Descargando los archivos y apuntarlos localmente</li>
+                <li>Apuntar directamente a los archivos de forma online mediante CDN</li>
+            </ul>
+
+            <p>En este ejemplo utilizaremos el CDN, ya que nuestro sitio se encontrará disponible solo en forma online.</p>
+
+            <figure class="figure">
+                <img src="imgBlog/bootstrap_cdn.png" class="figure-img img-fluid rounded borde-gris-img" alt="Sección BootstrapCDN">
+                <figcaption class="figure-caption text-right">Sección BootstrapCDN</figcaption>
+            </figure>
+
+
+            <hr>
+
+            
+            <h3>2. Linkear estilos y scripts:</h3>
+            
+            <p>Copiar las etiquetas de CSS y JavaScript a nuestra página en la sección <strong>BootstrapCDN</strong>.</p>
+
+            <p><strong>Nota: </strong>Bootstrap requiere <a href="http://jquery.com/" target="_blank">JQuery</a> y  <a href="https://popper.js.org/" target="_blank">Popper.js</a> para su correcto funcionamiento, por esa razón conviene agregar las 3 etiquetas <strong>&lt;script&gt;</strong>.</p>
+
+
+            <hr>
+            
+                        
+            <h3>3. Puesta en marcha:</h3>
+
+            <p>Listo, ya podemos utilizar código de ejemplo de Bootstrap para nuestro sitio web.</p>
+
+            <p>En el sitio oficial de Bootstrap visitar la sección <a href="https://getbootstrap.com/docs/4.1/getting-started/introduction/" target="_blank">Documentation</a> para poder agregar ejemplos a nuestra página.</p>
+
+            <p><strong>Por ejemplo:</strong></p>
+
+            <p>En la sección izquierda de la pantalla hacer clic en <strong>Components</strong> para desplegar una lista de componentes interesantes para nuestro sitio:</p>
+
+            <figure class="figure">
+                <img src="imgBlog/bootstrap_components.png" class="figure-img img-fluid rounded borde-gris-img" alt="Sección Components">
+                <figcaption class="figure-caption text-right">Sección Components</figcaption>
+            </figure>
+
+            <p>Hacer clic en <strong>Buttons</strong> y copiar el código html del ejemplo en nuestro sitio:</p>
+
+            <figure class="figure">
+                <img src="imgBlog/bootstrap_examples.png" class="figure-img img-fluid rounded borde-gris-img" alt="Sección Examples">
+                <figcaption class="figure-caption text-right">Sección Examples</figcaption>
+            </figure>
+
+            <p>Guardar y ejecutar para ver el mismo ejemplo en nuestro sitio:</p>
+
+            <figure class="figure">
+                <img src="imgBlog/bootstrap_demo.png" class="figure-img img-fluid rounded borde-gris-img" alt="Vista previa">
+                <figcaption class="figure-caption text-right">Vista previa</figcaption>
+            </figure>
+
+          </div><!-- /.blog-post -->
+
+
+          <nav class="blog-pagination">
+            <!--<a class="btn btn-outline-primary" href="#">Habilitado</a> -->
+            <a class="btn btn-outline-secondary disabled" href="#">Anterior</a>
+            <a class="btn btn-outline-secondary disabled" href="#">Mas reciente</a>
+          </nav>
+
+        </div><!-- /.blog-main -->
+
+        <aside class="col-md-4 blog-sidebar">
+          <div class="p-3 mb-3 bg-light rounded" style="display: none">
+            <h4 class="font-italic">About</h4>
+            <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+          </div>
+
+          <div class="p-3" style="display: none">
+            <h4 class="font-italic">Archives</h4>
+            <ol class="list-unstyled mb-0">
+              <li><a href="#">March 2014</a></li>
+              <li><a href="#">February 2014</a></li>
+              <li><a href="#">January 2014</a></li>
+              <li><a href="#">December 2013</a></li>
+              <li><a href="#">November 2013</a></li>
+              <li><a href="#">October 2013</a></li>
+              <li><a href="#">September 2013</a></li>
+              <li><a href="#">August 2013</a></li>
+              <li><a href="#">July 2013</a></li>
+              <li><a href="#">June 2013</a></li>
+              <li><a href="#">May 2013</a></li>
+              <li><a href="#">April 2013</a></li>
+            </ol>
+          </div>
+
+          <div class="p-3">
+            <h4 class="font-italic">Redes</h4>
+            <ol class="list-unstyled">
+              <li><a href="https://github.com/diegoprietto" target="_blank">GitHub</a></li>
+              <li><a href="https://www.facebook.com/diego.prietto.1" target="_blank">Facebook</a></li>
+            </ol>
+          </div>
+        </aside><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </main><!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>Blog template built for <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.</p>
+      <p>
+        <a href="#">Ir Arriba</a>
+      </p>
+    </footer>
+
+  </body>
+</html>
