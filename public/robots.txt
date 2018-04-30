@@ -1,0 +1,3 @@
+﻿https://diegoprietto.herokuapp.com/sitemap.txt
+https://diegoprietto.herokuapp.com/blogs/bootstrap.html
+https://diegoprietto.herokuapp.com/
