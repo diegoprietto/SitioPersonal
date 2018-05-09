@@ -1,2 +1,2 @@
 https://diegoprietto.herokuapp.com/blogs/bootstrap.html
-https://diegoprietto.herokuapp.com/
+https://diegoprietto.herokuapp.com/index.html

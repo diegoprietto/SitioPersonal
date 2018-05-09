@@ -136,7 +136,10 @@ app.post('/login', function(req, res){
 
 //Renderizar usando Pug
 app.get('/', function(req, res){
-  res.render('home');
+  res.redirect('/index.html');
+  
+  ////Por el momento indicar que el sitio esta bajo reconstrucción
+  ////res.render('home');
 });
 
  //FIN Definición URL**************************************************************************************
@@ -202,4 +205,4 @@ var usuarioTempo = {
     Mail: "pepe@pepe.pepe"
 };
 
-moduloDesa.agregarUsuario(usuarioTempo, "Users", uriBDTemporal);
+////moduloDesa.agregarUsuario(usuarioTempo, "Users", uriBDTemporal);
