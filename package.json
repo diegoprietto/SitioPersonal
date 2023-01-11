@@ -23,7 +23,7 @@
     "express-session": "^1.15.2",
     "jimp": "^0.2.28",
     "mongodb": "^2.2.36",
-    "ms": "^1.0.0",
+    "ms": "^2.0.0",
     "multer": "^1.4.1",
     "nodemailer": "^4.6.8",
     "on-headers": "^1.0.1",
